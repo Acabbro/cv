@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oleh Kozlovskyi | Cybersecurity Student, Aspiring Penetration Tester | Warsaw</title>
+<meta name="description" content="Interactive CV and security portfolio of Oleh Kozlovskyi, cybersecurity student in Warsaw seeking junior penetration testing, security research or SOC L1 roles.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<style>
+:root{--bg:#07090E;--card:#0D1117;--tx:#E6EDF3;--mut:#8B98A9;--g:#00FF9C;--r:#FF3366;--bd:#1F2937}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--tx);font-family:Inter,system-ui,sans-serif;line-height:1.6}
+.mono{font-family:'JetBrains Mono',ui-monospace,monospace}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:6px}
+.g{color:var(--g)}.r{color:var(--r)}.mut{color:var(--mut)}
+a{color:inherit}
+h2.sec{font-family:'JetBrains Mono',monospace;font-size:.95rem;font-weight:700;color:var(--g);margin:2.2rem 0 .9rem}
+.bar{position:sticky;top:0;z-index:20;background:rgba(7,9,14,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--bd)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--g);box-shadow:0 0 8px var(--g);animation:pulse 1.8s infinite}
+@keyframes pulse{50%{opacity:.35}}
+.btn{font-family:'JetBrains Mono',monospace;font-size:.75rem;border:1px solid var(--bd);padding:.4rem .75rem;border-radius:4px;background:var(--card);color:var(--tx);cursor:pointer;transition:.15s}
+.btn:hover,.btn:focus-visible{border-color:var(--g);color:var(--g);outline:none}
+.btn.hot{border-color:var(--g);color:var(--g)}
+.tab{font-family:'JetBrains Mono',monospace;font-size:.78rem;padding:.4rem .8rem;border:1px solid var(--bd);border-radius:4px;background:transparent;color:var(--mut);cursor:pointer}
+.tab:hover{color:var(--tx)}
+.tab.on{border-color:var(--g);color:var(--g);background:rgba(0,255,156,.07)}
+.badge{font-family:'JetBrains Mono',monospace;font-size:.72rem;border:1px solid var(--r);color:var(--r);padding:.15rem .55rem;border-radius:3px}
+.tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.74rem;border:1px solid var(--bd);padding:.12rem .5rem;margin:0 .3rem .35rem 0;border-radius:3px;color:var(--tx);transition:.2s}
+.tags.f .tag{opacity:.28}
+.tags.f .tag.hit{opacity:1;border-color:var(--g);color:var(--g)}
+.proj{padding:1.1rem 1.2rem;margin-bottom:.9rem;border-left:2px solid var(--bd)}
+.proj.fh{display:none}
+.proj:hover{border-left-color:var(--g)}
+.cat{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--r)}
+.xp{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--g);background:none;border:0;cursor:pointer;padding:0;margin-top:.5rem}
+.xp:hover{text-decoration:underline}
+.bd{display:none;margin-top:.8rem;border-top:1px dashed var(--bd);padding-top:.8rem}
+.bd.open{display:block}
+.bd h4{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--r);margin-top:.6rem}
+.bd h4:first-child{margin-top:0}
+.bd p{font-size:.88rem;color:var(--mut)}
+code{font-family:'JetBrains Mono',monospace;font-size:.82em;color:var(--g)}
+#toast{position:fixed;bottom:1.2rem;right:1.2rem;background:var(--card);border:1px solid var(--g);color:var(--g);font-family:'JetBrains Mono',monospace;font-size:.78rem;padding:.55rem .9rem;border-radius:4px;opacity:0;transform:translateY(8px);transition:.25s;pointer-events:none;z-index:50}
+#toast.show{opacity:1;transform:none}
+.sr{position:absolute;left:-9999px}
+
+/* ---------- PRINT: classic one-page A4 ATS resume ---------- */
+@page{size:A4;margin:12mm}
+@media print{
+  html,body{background:#fff!important;color:#000!important;font-family:Arial,Helvetica,sans-serif!important;font-size:9.5pt!important;line-height:1.26!important}
+  *{background:transparent!important;color:#000!important;box-shadow:none!important;text-shadow:none!important;border-radius:0!important;animation:none!important;opacity:1!important;font-family:Arial,Helvetica,sans-serif!important}
+  .noprint,.bar,#toast,.xp,.bd,.cat,.term{display:none!important}
+  .wrap{max-width:none!important;padding:0!important;margin:0!important}
+  .card{border:0!important;padding:0!important;margin:0!important}
+  a{text-decoration:none!important}
+  h1{font-size:17pt!important;font-weight:700!important;margin:0!important;line-height:1.1!important}
+  .headline{font-size:10pt!important;font-weight:700!important;margin:1mm 0 0!important}
+  .contact{font-size:9pt!important;margin:1mm 0 0!important}
+  .contact,.roles{display:block!important}
+  .contact span+span::before{content:" | "}
+  h2.sec{font-size:10pt!important;text-transform:uppercase;font-weight:700!important;border-bottom:.6pt solid #000!important;margin:3mm 0 1.2mm!important;padding-bottom:.4mm}
+  p,li{font-size:9.5pt!important;margin:0!important}
+  .proj{border:0!important;padding:0!important;margin:0 0 1.1mm!important;break-inside:avoid}
+  .proj.fh{display:block!important}
+  .proj h3{font-size:9.5pt!important;font-weight:700!important;display:inline}
+  .proj h3::after{content:" \2013  "}
+  .proj .sum{display:inline;color:#000!important}
+  .tags .tag{display:inline!important;border:0!important;padding:0!important;margin:0!important;font-size:9.5pt!important}
+  .tags .tag:not(:last-child)::after{content:", "}
+  .skillrow{margin:0 0 .7mm!important;break-inside:avoid}
+  .skillrow b{font-weight:700}
+  .grid2{display:block!important}
+  .item{break-inside:avoid;margin-bottom:1mm!important}
+  ul{margin:0!important;padding-left:4.5mm!important;list-style:disc!important}
+  .roles{font-size:9pt!important;margin-top:1mm!important}
+  .roles .badge{border:0!important;padding:0!important;font-size:9pt!important}
+  .roles .badge:not(:last-child)::after{content:" \2022  "}
+}
+</style>
+</head>
+<body>
+
+<!-- Sticky status bar (screen only) -->
+<header class="bar noprint">
+  <div class="max-w-5xl mx-auto px-4 py-2 flex flex-wrap items-center justify-between gap-2">
+    <div class="mono text-xs flex items-center gap-2"><span class="dot"></span><span class="mut">STATUS:</span><span class="g">OPEN TO WORK [WARSAW / REMOTE]</span></div>
+    <div class="flex gap-2">
+      <button class="btn" id="copyMail" type="button">Copy Email</button>
+      <button class="btn hot" id="printBtn" type="button">Export Clean PDF / Print CV</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap max-w-5xl mx-auto px-4 pb-16">
+
+  <!-- Header -->
+  <section class="pt-10">
+    <p class="mono text-sm term"><span class="g">oleh@sec-ops</span><span class="mut">:~$</span> whoami</p>
+    <h1 class="mono text-3xl sm:text-5xl font-bold mt-2">Oleh Kozlovskyi</h1>
+    <p class="headline mono g mt-2 text-sm sm:text-base">Cybersecurity Student | Aspiring Penetration Tester, Linux &amp; Security Operations</p>
+    <p class="contact mut text-sm mt-3 flex flex-wrap gap-x-4 gap-y-1">
+      <span>Warsaw, Poland (Hybrid / Remote / On-site)</span>
+      <span><a href="mailto:olko.koz.007@gmail.com">olko.koz.007@gmail.com</a></span>
+      <span><a href="tel:+48572234088">+48 572 234 088</a></span>
+      <span><a href="https://www.linkedin.com/in/oleh-kozlovskyi-a27707404" target="_blank" rel="noopener noreferrer">linkedin.com/in/oleh-kozlovskyi-a27707404</a></span>
+    </p>
+    <div class="roles mt-4 flex flex-wrap gap-2">
+      <span class="badge">Junior Penetration Tester / Ethical Hacker Intern</span>
+      <span class="badge">Junior Security Researcher</span>
+      <span class="badge">Junior SOC Analyst (L1)</span>
+    </div>
+  </section>
+
+  <!-- Summary -->
+  <h2 class="sec"><span class="term">## </span>Professional Summary</h2>
+  <p class="max-w-3xl">Execution-driven Cybersecurity undergraduate (3rd semester, English-taught B.Sc.) based in Warsaw with a strong focus on offensive security, Linux internals, vulnerability analysis, and threat modeling. Experienced in reproducing and mitigating concurrency/race-condition flaws, scripting security and automation workflows, and designing enterprise InfoSec policies. Actively training on TryHackMe and seeking an entry-level role in Penetration Testing, Vulnerability Assessment, or SOC Analysis (L1).</p>
+
+  <!-- Filter tabs -->
+  <nav class="noprint mt-8 flex flex-wrap gap-2" aria-label="Filter projects and skills">
+    <button class="tab on" data-f="all" type="button" aria-pressed="true">[ALL]</button>
+    <button class="tab" data-f="off" type="button" aria-pressed="false">[OFFENSIVE &amp; LINUX]</button>
+    <button class="tab" data-f="def" type="button" aria-pressed="false">[DEFENSIVE &amp; POLICY]</button>
+    <button class="tab" data-f="code" type="button" aria-pressed="false">[CODE &amp; AUTOMATION]</button>
+  </nav>
+
+  <!-- Skills -->
+  <h2 class="sec"><span class="term">## </span>Technical Arsenal</h2>
+  <div class="tags grid grid-cols-1 md:grid-cols-2 gap-3 grid2" id="skills">
+    <div class="card p-4 skillrow">
+      <p class="mono text-xs r mb-2"><b>Offensive &amp; Security Fundamentals:</b></p>
+      <span class="tag" data-c="off">Vulnerability &amp; Race Condition Analysis</span><span class="tag" data-c="off">OWASP Top 10 Concepts</span><span class="tag" data-c="off def">Threat Modeling</span><span class="tag" data-c="def">Information Security Policy Design</span><span class="tag" data-c="off">TryHackMe (Active Hands-on Labs)</span>
+    </div>
+    <div class="card p-4 skillrow">
+      <p class="mono text-xs r mb-2"><b>OS &amp; Networking:</b></p>
+      <span class="tag" data-c="off">Linux Administration &amp; Internals</span><span class="tag" data-c="off code">Bash scripting</span><span class="tag" data-c="off">Process/thread control</span><span class="tag" data-c="off">POSIX flock</span><span class="tag" data-c="off def">Permissions</span><span class="tag" data-c="off">vmstat / top</span><span class="tag" data-c="off">IPC</span><span class="tag" data-c="off def">TCP/IP Networking Fundamentals</span>
+    </div>
+    <div class="card p-4 skillrow">
+      <p class="mono text-xs r mb-2"><b>Scripting, Code &amp; Databases:</b></p>
+      <span class="tag" data-c="code">Python</span><span class="tag" data-c="code off">Bash</span><span class="tag" data-c="code">C#</span><span class="tag" data-c="code">Java</span><span class="tag" data-c="code">JavaScript (ES6+, DOM, Web Storage API)</span><span class="tag" data-c="code def">Microsoft SQL Server (T-SQL, Views, Stored Procedures)</span><span class="tag" data-c="off def">SQL injection awareness &amp; secure querying</span>
+    </div>
+    <div class="card p-4 skillrow">
+      <p class="mono text-xs r mb-2"><b>Automation &amp; Tooling:</b></p>
+      <span class="tag" data-c="code">n8n Workflow Automation</span><span class="tag" data-c="code">LLM API Integration (Claude, OpenAI)</span><span class="tag" data-c="code">Git/GitHub</span><span class="tag" data-c="code">VS Code</span><span class="tag" data-c="code">Cursor</span>
+    </div>
+  </div>
+
+  <!-- Projects -->
+  <h2 class="sec"><span class="term">## </span>Selected Security &amp; Technical Projects</h2>
+  <div id="projects">
+
+    <article class="card proj item" data-cat="off">
+      <p class="cat">CATEGORY: OFFENSIVE &amp; LINUX</p>
+      <h3 class="mono font-semibold">Linux Concurrency, Race Condition Analysis &amp; Kernel-Level Mitigation (<code>flock</code>)</h3>
+      <p class="sum text-sm mut mt-1">Built multi-process Bash environments that reliably reproduce non-atomic read-modify-write race conditions, showing lost updates and data corruption under concurrent execution. Fixed it with POSIX exclusive file locking (<code>flock -x</code>) around the critical section, plus <code>nice</code>/<code>renice</code> scheduling and <code>vmstat</code>/<code>top -H</code> context-switch analysis.</p>
+      <button class="xp" type="button" aria-expanded="false">[+] technical breakdown</button>
+      <div class="bd">
+        <h4>ATTACK SURFACE / PROBLEM</h4><p>A shared resource updated with a non-atomic read-modify-write sequence. When several processes interleave, they overwrite each other's results, so updates are lost and state is corrupted.</p>
+        <h4>TECHNICAL EXECUTION</h4><p>Spawned concurrent Bash workers against the same file to trigger the race on demand, then wrapped the critical section in <code>flock -x</code>. Varied priorities with <code>nice</code>/<code>renice</code> and observed context switches with <code>vmstat</code> and <code>top -H</code>.</p>
+        <h4>SECURITY IMPACT</h4><p>Shows how an integrity flaw appears under concurrency and how kernel-level exclusive locking restores correct, deterministic results.</p>
+      </div>
+    </article>
+
+    <article class="card proj item" data-cat="def">
+      <p class="cat">CATEGORY: DEFENSIVE &amp; POLICY</p>
+      <h3 class="mono font-semibold">InfoSec Policy &amp; Threat Analysis &mdash; International Airport Model (Academic Case Study)</h3>
+      <p class="sum text-sm mut mt-1">Authored an Information Security Policy framework defining Network Administrator access boundaries, privilege controls, and incident response responsibilities. Modeled high-impact threats around change management and failed software updates in high-availability airport networks.</p>
+      <button class="xp" type="button" aria-expanded="false">[+] technical breakdown</button>
+      <div class="bd">
+        <h4>ATTACK SURFACE / PROBLEM</h4><p>In a high-availability airport network, one privileged administrator mistake or a failed software update can cascade into an outage that affects many systems at once.</p>
+        <h4>TECHNICAL EXECUTION</h4><p>Defined the Network Administrator role, its access boundaries, privilege controls and accountability, then modeled the change management and failed-update threat with preventive controls, detective controls and incident response duties.</p>
+        <h4>SECURITY IMPACT</h4><p>Limits the blast radius of privileged changes and ties availability risk to concrete policy controls and clear ownership.</p>
+      </div>
+    </article>
+
+    <article class="card proj item" data-cat="off">
+      <p class="cat">CATEGORY: OFFENSIVE &amp; LINUX</p>
+      <h3 class="mono font-semibold">Interactive Terminal Security Web Portfolio &amp; Client-Side Web Apps</h3>
+      <p class="sum text-sm mut mt-1">Designed and deployed a terminal-themed cybersecurity showcase with interactive CLI-style security demos, alongside a pure JavaScript CRUD application using DOM manipulation and the Web Storage API.</p>
+      <button class="xp" type="button" aria-expanded="false">[+] technical breakdown</button>
+      <div class="bd">
+        <h4>ATTACK SURFACE / PROBLEM</h4><p>Client-side apps run in a browser the user controls. Stored data and DOM updates sit on that trust boundary, so input handling matters (XSS awareness).</p>
+        <h4>TECHNICAL EXECUTION</h4><p>Built CLI-style interactive demos and a vanilla JavaScript CRUD app with DOM manipulation and Web Storage API persistence, without frameworks.</p>
+        <h4>SECURITY IMPACT</h4><p>Practical grounding in how browser-side state and rendering behave, which is the starting point for web application testing.</p>
+      </div>
+    </article>
+
+    <article class="card proj item" data-cat="code">
+      <p class="cat">CATEGORY: CODE &amp; AUTOMATION</p>
+      <h3 class="mono font-semibold">Relational Database Architecture &amp; Stored Procedure Logic (MS SQL Server)</h3>
+      <p class="sum text-sm mut mt-1">Engineered a normalized relational schema, analytical <code>VIEW</code>s, and parameterized <code>Stored Procedures</code> for controlled data manipulation and integrity enforcement.</p>
+      <button class="xp" type="button" aria-expanded="false">[+] technical breakdown</button>
+      <div class="bd">
+        <h4>ATTACK SURFACE / PROBLEM</h4><p>Ad hoc queries built from raw input open the door to SQL injection and inconsistent data.</p>
+        <h4>TECHNICAL EXECUTION</h4><p>Designed a normalized schema, exposed read access through views, and routed writes through parameterized stored procedures in T-SQL.</p>
+        <h4>SECURITY IMPACT</h4><p>Narrows the injection surface and enforces integrity rules at the database layer instead of trusting the caller.</p>
+      </div>
+    </article>
+
+    <article class="card proj item" data-cat="code">
+      <p class="cat">CATEGORY: CODE &amp; AUTOMATION</p>
+      <h3 class="mono font-semibold">AI &amp; Workflow Automation Pipelines (n8n)</h3>
+      <p class="sum text-sm mut mt-1">Engineered automated business pipelines with n8n and LLM APIs to handle client outreach, data routing, and operational scheduling.</p>
+      <button class="xp" type="button" aria-expanded="false">[+] technical breakdown</button>
+      <div class="bd">
+        <h4>ATTACK SURFACE / PROBLEM</h4><p>Manual outreach and routing are slow and error-prone, and automations that touch client data and API credentials create their own attack surface.</p>
+        <h4>TECHNICAL EXECUTION</h4><p>Built n8n workflows that call LLM APIs (Claude, OpenAI) to draft outreach, route data and schedule operations.</p>
+        <h4>SECURITY IMPACT</h4><p>Taught me to treat secrets, data flows and third-party API calls as part of the security perimeter.</p>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 grid2">
+    <section>
+      <h2 class="sec"><span class="term">## </span>Experience</h2>
+      <div class="item">
+        <p class="font-semibold">Freelance Technical Operations &amp; Automation Specialist</p>
+        <p class="mut text-sm">2025 &ndash; Present | Remote / Warsaw</p>
+        <ul class="list-disc pl-5 text-sm mut mt-1">
+          <li>Built automated tracking systems, operational workflows, and custom visual assets for commercial digital channels.</li>
+          <li>Managed technical troubleshooting, client communications, and inventory operations with a focus on speed and reliability.</li>
+        </ul>
+      </div>
+    </section>
+    <section>
+      <h2 class="sec"><span class="term">## </span>Education</h2>
+      <div class="item">
+        <p class="font-semibold">B.Sc. in Cybersecurity (Taught in English), Vistula University</p>
+        <p class="mut text-sm">Warsaw, Poland | 2025 &ndash; Present (3rd Semester)</p>
+        <p class="text-sm mut mt-1">Core coursework: Security of Computer Systems, Operating Systems (Linux), Architecture of Computers, Databases, Java Programming, Digital Logic, Discrete Mathematics.</p>
+      </div>
+    </section>
+  </div>
+
+  <h2 class="sec"><span class="term">## </span>Languages</h2>
+  <p class="text-sm mut">English: Fluent (B2/C1, academic &amp; technical) | Polish: Conversational (B1) | Ukrainian: Native | Russian: Fluent | German: Basic (A2)</p>
+
+</main>
+
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function () {
+  var EMAIL = 'olko.koz.007@gmail.com';
+
+  // Toast
+  var toast = document.getElementById('toast'), tt;
+  function showToast(msg) {
+    toast.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(tt);
+    tt = setTimeout(function () { toast.classList.remove('show'); }, 2200);
+  }
+
+  // Copy email (Clipboard API with fallback)
+  document.getElementById('copyMail').addEventListener('click', function () {
+    function done() { showToast('Email copied: ' + EMAIL); }
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(EMAIL).then(done, fallback);
+    } else { fallback(); }
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = EMAIL; ta.className = 'sr';
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); done(); } catch (e) { showToast('Copy failed: ' + EMAIL); }
+      document.body.removeChild(ta);
+    }
+  });
+
+  // Print
+  document.getElementById('printBtn').addEventListener('click', function () { window.print(); });
+
+  // Filter tabs: filter projects, highlight matching skill tags
+  var tabs = document.querySelectorAll('.tab');
+  var projs = document.querySelectorAll('.proj');
+  var tagBox = document.getElementById('skills');
+  var tags = tagBox.querySelectorAll('.tag');
+
+  function setFilter(f) {
+    for (var i = 0; i < tabs.length; i++) {
+      var on = tabs[i].getAttribute('data-f') === f;
+      tabs[i].classList.toggle('on', on);
+      tabs[i].setAttribute('aria-pressed', on ? 'true' : 'false');
+    }
+    for (var j = 0; j < projs.length; j++) {
+      projs[j].classList.toggle('fh', f !== 'all' && projs[j].getAttribute('data-cat') !== f);
+    }
+    tagBox.classList.toggle('f', f !== 'all');
+    for (var k = 0; k < tags.length; k++) {
+      var cats = tags[k].getAttribute('data-c').split(' ');
+      tags[k].classList.toggle('hit', f !== 'all' && cats.indexOf(f) !== -1);
+    }
+  }
+  for (var t = 0; t < tabs.length; t++) {
+    tabs[t].addEventListener('click', function () { setFilter(this.getAttribute('data-f')); });
+  }
+
+  // Expandable technical breakdowns
+  var xps = document.querySelectorAll('.xp');
+  for (var x = 0; x < xps.length; x++) {
+    xps[x].addEventListener('click', function () {
+      var box = this.nextElementSibling;
+      var open = box.classList.toggle('open');
+      this.setAttribute('aria-expanded', open ? 'true' : 'false');
+      this.textContent = open ? '[-] hide breakdown' : '[+] technical breakdown';
+    });
+  }
+})();
+</script>
+</body>
+</html>
